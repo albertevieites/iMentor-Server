@@ -71,7 +71,7 @@ router.post("/create/:user1/:user2",(req,res,next)=>{
             Chat.create({user1, user2}, {new: true})
             .populate("user1")
             .populate("user2")
-            .populate("messages")        
+            .populate("messages")
             .then(chat=>{
                 res.status(200).json(chat)
             })

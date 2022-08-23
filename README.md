@@ -1,4 +1,4 @@
-<img src="https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png" width="200"/> &nbsp; <img src="https://i.ibb.co/txcgFGM/yapic.png" width="200"/> -->
+<img src="https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png" width="200"/>
 
 # iMentor: Find a mentor in the Ironhack community
 

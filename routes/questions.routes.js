@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 const { isAuthenticated } = require('../middlewares/jwt.middleware');
 // const { OwnerOnly } = require('../middlewares/ownerOnly.middleware');
-const Users = require('../models/User.model');
+const Users = require('../models/user.model');
 const Questions = require('../models/question.model');
 const Comments = require('../models/comment.model');
 

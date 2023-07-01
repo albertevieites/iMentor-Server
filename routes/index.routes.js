@@ -8,8 +8,6 @@ router.use("/", require('./questions.routes'))
 
 router.use("/", require('./skills.routes'))
 
-router.use("/chats", require('./chat.routes'))
-
 router.use("/auth", require('./auth.routes'))
 
 router.use("/upload", require('./upload.routes'))

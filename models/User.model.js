@@ -58,4 +58,4 @@ const userSchema = new Schema({
   questions: [{ type: Schema.Types.ObjectId, ref: 'Question' }],
 });
 
-module.exports = model('User', userSchema);
+module.exports = model('user', userSchema);

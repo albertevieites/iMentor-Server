@@ -9,4 +9,4 @@ const messageSchema = new Schema({
   timestamps:true
 });
 
-module.exports = model("Message", messageSchema);
+module.exports = model("message", messageSchema);

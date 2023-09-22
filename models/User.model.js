@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
 
+const arrSkills = require("../utils/skills.list.js");
+
 const userSchema = new Schema({
   userType: {
     type: String,
@@ -29,24 +31,23 @@ const userSchema = new Schema({
     type: String,
     default: 'http://cdn.onlinewebfonts.com/svg/img_574534.png',
   },
-  chats: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'chat',
-    },
-  ],
   ocuppation: {
     type: String,
   },
   company: {
     type: String,
   },
-  skills: [
+ /*  skills: [
     {
       type: Schema.Types.ObjectId,
       ref: 'skills',
     },
-  ],
+  ], */
+  skills: {
+    type: [String],
+    enum: arrSkills,
+    default: arrSkills[0],
+  },
   course: {
     type: String,
     enum: ['Web Development', 'UX/UI', 'Data Analytics'],
@@ -58,4 +59,6 @@ const userSchema = new Schema({
   questions: [{ type: Schema.Types.ObjectId, ref: 'Question' }],
 });
 
-module.exports = model('user', userSchema);
+const User = model('user', userSchema);
+
+module.exports = User;

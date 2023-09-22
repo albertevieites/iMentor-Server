@@ -14,7 +14,7 @@ router.get('/profile/:id', isAuthenticated, (req, res) => {
     .catch(err => console.log(err));
 });
 
-router.post('/profile/:id/edit', isAuthenticated, (req, res) => {
+router.patch('/profile/:id/edit', isAuthenticated, (req, res) => {
   const {
     username,
     userType,

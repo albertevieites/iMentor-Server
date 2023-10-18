@@ -1,7 +1,6 @@
 const router = require('express').Router();
 
 const { isAuthenticated } = require('../middlewares/jwt.middleware');
-// const { OwnerOnly } = require("../middlewares/ownerOnly.middleware")
 const Users = require('../models/user.model');
 
 router.get('/profile/:id', isAuthenticated, (req, res) => {
@@ -23,7 +22,7 @@ router.patch('/profile/:id/edit', isAuthenticated, (req, res) => {
     course,
     graduationYear,
     skills,
-    ocuppation,
+    occupation,
     company,
   } = req.body;
 
@@ -36,7 +35,7 @@ router.patch('/profile/:id/edit', isAuthenticated, (req, res) => {
     course,
     graduationYear,
     skills,
-    ocuppation,
+    occupation,
     company,
     username,
   })

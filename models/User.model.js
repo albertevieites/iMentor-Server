@@ -31,18 +31,12 @@ const userSchema = new Schema({
     type: String,
     default: 'http://cdn.onlinewebfonts.com/svg/img_574534.png',
   },
-  ocuppation: {
+  occupation: {
     type: String,
   },
   company: {
     type: String,
   },
- /*  skills: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'skills',
-    },
-  ], */
   skills: {
     type: [String],
     enum: arrSkills,

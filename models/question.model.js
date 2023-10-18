@@ -1,5 +1,7 @@
 const { Schema, model } = require('mongoose');
 
+const arrSkills = require('../utils/skills.list.js');
+
 const questionSchema = new Schema(
   {
     title: {
@@ -26,6 +28,10 @@ const questionSchema = new Schema(
         ref: 'comments',
       },
     ],
+    tags: {
+      type: [String],
+      enum: arrSkills,
+    },
     skills: [
       {
         type: Schema.Types.ObjectId,
@@ -35,7 +41,7 @@ const questionSchema = new Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 const Question = model('Question', questionSchema);

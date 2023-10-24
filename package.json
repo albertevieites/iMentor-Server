@@ -1,6 +1,8 @@
 {
   "name": "imentor-server",
   "version": "0.0.1",
+  "description": "A backend for metoring app",
+  "main": "server.js",
   "private": true,
   "scripts": {
     "start": "node server.js",

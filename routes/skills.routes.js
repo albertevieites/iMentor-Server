@@ -1,9 +1,6 @@
 const router = require('express').Router();
 
 const { isAuthenticated } = require('../middlewares/jwt.middleware');
-// const { OwnerOnly } = require("../middlewares/ownerOnly.middleware")
-// const Users = require('../models/User.model')
-// const Comments = require('../models/comment.model')
 const Skills = require('../models/skills.model');
 
 router.get('/skills', isAuthenticated, (req, res) => {

@@ -20,25 +20,22 @@
 - **delete questions** - As a user, I want to have the possibility to delete my questions.
 - **filter questions** - As a user, I want to have the possibility to filter the questions of the community.
 
-## Server Routes/Views:
+## Server Routes/Views
 
-|**Method**    |    **Route**     |   **Description**       |          **Request - Body**                     |
-|--------------|------------------------|-----------------------------------|---------------------|
-|`POST`        |    `/signup`           | Send signup data to server and creates an user in DB`    |          {username, email, password}           |                    
-|`POST`        |      `/login`          | Send login data to server     | {email, password}            |
-|`GET`         |      `/questions`           | Get questions from the server              | {req.session.currentUser._id}    |
-|`POST`         |      `/questions`           | Add new questions to the server              | {req.session.currentUser._id}    |
-|`GET`         |      `/questions/:id`           | Send questions from the server              | {req.session.currentUser._id}    |
-|`POST`         |      `/questions/:id/delete`           | Delete specific question from the server              | {req.session.currentUser._id}    |
-|`PATCH`         |      `/questions/:id/edit`           | Edit specific question from the server              | {req.session.currentUser._id}    |
-|`POST`         |      `/questions/:id/comment/add`           | Send comment to specific question to the server              | {req.session.currentUser._id}    |
-|`GET`         |      `/profile/:id`        | Get the profile of the user            | {req.session.currentUser._id}                    |
-|`PATCH`        |      `/profile/:id/edit` | Send the data updated by the user to the DB | {req.session.userID, name, password, email, image, req.session.currentUser._id}  |
-|`GET`         |      `/mentors`           | Send the data of the mentors from the server              | {req.session.currentUser._id}    |
-|`POST`         |      `/image`           | Upload images to the database              | {req.session.currentUser._id}    |
-
-
-
+| **Method** | **Route**                    | **Description**                                       | **Request - Body**                                                               |
+| ---------- | ---------------------------- | ----------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `POST`     | `/signup`                    | Send signup data to server and creates an user in DB` | {username, email, password}                                                      |
+| `POST`     | `/login`                     | Send login data to server                             | {email, password}                                                                |
+| `GET`      | `/questions`                 | Get questions from the server                         | {req.session.currentUser.\_id}                                                   |
+| `POST`     | `/questions`                 | Add new questions to the server                       | {req.session.currentUser.\_id}                                                   |
+| `GET`      | `/questions/:id`             | Send questions from the server                        | {req.session.currentUser.\_id}                                                   |
+| `POST`     | `/questions/:id/delete`      | Delete specific question from the server              | {req.session.currentUser.\_id}                                                   |
+| `PATCH`    | `/questions/:id/edit`        | Edit specific question from the server                | {req.session.currentUser.\_id}                                                   |
+| `POST`     | `/questions/:id/comment/add` | Send comment to specific question to the server       | {req.session.currentUser.\_id}                                                   |
+| `GET`      | `/profile/:id`               | Get the profile of the user                           | {req.session.currentUser.\_id}                                                   |
+| `PATCH`    | `/profile/:id/edit`          | Send the data updated by the user to the DB           | {req.session.userID, name, password, email, image, req.session.currentUser.\_id} |
+| `GET`      | `/mentors`                   | Send the data of the mentors from the server          | {req.session.currentUser.\_id}                                                   |
+| `POST`     | `/image`                     | Upload images to the database                         | {req.session.currentUser.\_id}                                                   |
 
 ## Models
 
@@ -46,97 +43,42 @@
 
 ```javascript
 {
-  userType: {
-    type: String,
-    default: 'mentee',
-    enum: ['mentor', 'mentee'],
-  },
-  email: {
-    type: String,
-    unique: true,
-    required: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
-  username: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  aboutMe: {
-    type: String,
-    default: '',
-  },
-  profileImg: {
-    type: String,
-    default: 'http://cdn.onlinewebfonts.com/svg/img_574534.png',
-  },
-  occupation: {
-    type: String,
-  },
-  company: {
-    type: String,
-  },
-  course: {
-    type: String,
-    enum: ['Web Development', 'UX/UI', 'Data Analytics'],
-  },
-  graduationYear: {
-    type: Number,
-  },
-  Comments: [{ type: Schema.Types.ObjectId, ref: 'comments' }],
-  questions: [{ type: Schema.Types.ObjectId, ref: 'Question' }],
+  userType: String,
+  email: String,
+  password: String,
+  username: String,
+  aboutMe: String,
+  profileImg: String,
+  occupation: String,
+  company: String,
+  course: String,
+  graduationYear: Number,
+  comments: Array,
+  questions: Array,
 }
 
 ```
+
 ### Question schema
 
 ```javascript
 {
-    title: {
-      type: String,
-      required: [true, 'Name is mandatory'],
-    },
-    description: {
-      type: String,
-      required: [true, 'Description is mandatory'],
-    },
-    code: {
-      type: String,
-    },
-    imageUrl: {
-      type: String,
-    },
-    owner: {
-      type: Schema.Types.ObjectId,
-      ref: 'user',
-    },
-    Comments: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'comments',
-      },
-    ],
-    tags: {
-      type: [String],
-      enum: arrTags,
-    },
+    title: String,
+    description: String,
+    code: String,
+    imageUrl: String,
+    owner: ObjectID,
+    Comments: Array,
+    tags: [Array],
 }
 ```
-### Comments schema 
+
+### Comments schema
+
 ```javascript
 {
-user: {
-      type: Schema.Types.ObjectId,
-      ref: 'user',
-    },
-    text: {
-      type: String,
-      required: true,
-    },
-name: String
+    text: String,
+    name: String
 }
 ```
 

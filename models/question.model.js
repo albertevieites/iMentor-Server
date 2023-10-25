@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const arrSkills = require('../utils/skills.list.js');
+const arrTags= require('../utils/tags.list.js');
 
 const questionSchema = new Schema(
   {
@@ -30,14 +30,8 @@ const questionSchema = new Schema(
     ],
     tags: {
       type: [String],
-      enum: arrSkills,
+      enum: arrTags,
     },
-    skills: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'skills',
-      },
-    ],
   },
   {
     timestamps: true,

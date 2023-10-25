@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
 
-const arrSkills = require("../utils/skills.list.js");
-
 const userSchema = new Schema({
   userType: {
     type: String,
@@ -36,11 +34,6 @@ const userSchema = new Schema({
   },
   company: {
     type: String,
-  },
-  skills: {
-    type: [String],
-    enum: arrSkills,
-    default: arrSkills[0],
   },
   course: {
     type: String,

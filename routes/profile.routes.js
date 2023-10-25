@@ -7,7 +7,6 @@ router.get('/profile/:id', isAuthenticated, (req, res) => {
   const { id } = req.params;
 
   Users.findById(id)
-    .populate('skills')
     .populate('questions')
     .then(user => res.json(user))
     .catch(err => console.log(err));
@@ -21,7 +20,6 @@ router.patch('/profile/:id/edit', isAuthenticated, (req, res) => {
     profileImg,
     course,
     graduationYear,
-    skills,
     occupation,
     company,
   } = req.body;
@@ -34,7 +32,6 @@ router.patch('/profile/:id/edit', isAuthenticated, (req, res) => {
     profileImg,
     course,
     graduationYear,
-    skills,
     occupation,
     company,
     username,

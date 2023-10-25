@@ -1,7 +1,6 @@
 const router = require('express').Router();
 
 const { isAuthenticated } = require('../middlewares/jwt.middleware');
-// const { OwnerOnly } = require('../middlewares/ownerOnly.middleware');
 const Users = require('../models/user.model');
 const Questions = require('../models/question.model');
 const Comments = require('../models/comment.model');
@@ -15,10 +14,10 @@ router.get('/questions', (req, res) => {
 
 // Add question
 router.post('/questions', isAuthenticated, (req, res) => {
-  const { imageUrl, title, description, code, skills } = req.body;
+  const { imageUrl, title, description, code } = req.body;
   const userId = req.payload._id;
 
-  Questions.create({ imageUrl, owner: userId, title, description, code,  skills })
+  Questions.create({ imageUrl, owner: userId, title, description, code })
     .then(question => {
       Users.findByIdAndUpdate(userId, {
         $push: { questions: question._id },
@@ -50,14 +49,13 @@ router.post('/questions/:id/delete', isAuthenticated, (req, res) => {
 
 router.patch('/questions/:id/edit', isAuthenticated, (req, res) => {
   const { id } = req.params;
-  const { imageUrl, title, description, skills, code } = req.body;
+  const { imageUrl, title, description, code } = req.body;
 
   Questions.findByIdAndUpdate(id, {
     imageUrl,
     title,
     description,
     code,
-    skills,
   })
     .then(updatedQuestion => res.json(updatedQuestion))
     .catch(err => res.status(500).json(err));

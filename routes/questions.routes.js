@@ -15,10 +15,10 @@ router.get('/questions', (req, res) => {
 
 // Add question
 router.post('/questions', isAuthenticated, (req, res) => {
-  const { imageUrl, title, description, skills } = req.body;
+  const { imageUrl, title, description, code, skills } = req.body;
   const userId = req.payload._id;
 
-  Questions.create({ imageUrl, owner: userId, title, description, skills })
+  Questions.create({ imageUrl, owner: userId, title, description, code,  skills })
     .then(question => {
       Users.findByIdAndUpdate(userId, {
         $push: { questions: question._id },
@@ -44,19 +44,23 @@ router.post('/questions/:id/delete', isAuthenticated, (req, res) => {
 
   Questions.findByIdAndDelete(id)
     .then(() => Users.findByIdAndUpdate(userId, { $pull: { questions: id } }))
+    .then(() => res.json({ message: "Question successfully deleted" })) // Envía una respuesta aquí
     .catch(err => res.status(500).json(err));
 });
 
-router.post('/questions/:id/edit', isAuthenticated, (req, res) => {
+router.patch('/questions/:id/edit', isAuthenticated, (req, res) => {
   const { id } = req.params;
-  const { imageUrl, title, description, skills } = req.body;
+  const { imageUrl, title, description, skills, code } = req.body;
 
   Questions.findByIdAndUpdate(id, {
     imageUrl,
     title,
     description,
+    code,
     skills,
-  }).catch(err => res.status(500).json(err));
+  })
+    .then(updatedQuestion => res.json(updatedQuestion))
+    .catch(err => res.status(500).json(err));
 });
 
 router.post('/questions/:id/comment/add', isAuthenticated, (req, res) => {

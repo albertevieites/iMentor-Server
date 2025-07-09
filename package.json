@@ -1,7 +1,7 @@
 {
   "name": "imentor-server",
   "version": "0.0.1",
-  "description": "A backend for metoring app",
+  "description": "A backend for mentoring app",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -11,27 +11,22 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "cloudinary": "^1.41.0",
+    "cloudinary": "^2.7.0",
+    "@fluidjs/multer-cloudinary": "^1.0.4",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
-    "engine.io": "6.5.3",
-    "express": "^4.18.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
     "express-jwt": "^8.4.1",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^7.6.3",
+    "mongoose": "^8.9.3",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
-    "multer-storage-cloudinary": "^4.0.0",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.1.9"
   },
   "devDependencies": {
-    "eslint": "^8.52.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "^2.29.0",
-    "eslint-plugin-n": "^16.2.0",
-    "eslint-plugin-promise": "^6.1.1",
-    "prettier": "^3.0.3"
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.4.2"
   }
 }

@@ -130,19 +130,19 @@ The server will start on `http://localhost:5005`
 
 ## 🛠️ Technologies Used
 
-| Technology     | Version | Purpose                       |
-| -------------- | ------- | ----------------------------- |
-| **Node.js**    | 18.x    | Runtime environment           |
-| **Express.js** | ^4.18.2 | Web framework                 |
-| **MongoDB**    | ^7.6.3  | Database (via Mongoose)       |
-| **JWT**        | ^9.0.2  | Authentication                |
-| **bcryptjs**   | ^2.4.3  | Password hashing              |
-| **Cloudinary** | ^1.41.0 | Image storage & processing    |
-| **Multer**     | ^1.4.5  | File upload handling          |
-| **CORS**       | ^2.8.5  | Cross-origin resource sharing |
-| **Morgan**     | ^1.10.0 | HTTP request logging          |
-| **ESLint**     | ^8.52.0 | Code linting                  |
-| **Prettier**   | ^3.0.3  | Code formatting               |
+| Technology     | Version      | Purpose                       |
+| -------------- | ------------ | ----------------------------- |
+| **Node.js**    | 18.x         | Runtime environment           |
+| **Express.js** | ^4.21.2      | Web framework                 |
+| **MongoDB**    | ^8.9.3       | Database (via Mongoose)       |
+| **JWT**        | ^9.0.2       | Authentication                |
+| **bcryptjs**   | ^2.4.3       | Password hashing              |
+| **Cloudinary** | ^2.7.0       | Image storage & processing    |
+| **Multer**     | ^1.4.5-lts.1 | File upload handling          |
+| **CORS**       | ^2.8.5       | Cross-origin resource sharing |
+| **Morgan**     | ^1.10.0      | HTTP request logging          |
+| **ESLint**     | ^8.57.1      | Code linting                  |
+| **Prettier**   | ^3.4.2       | Code formatting               |
 
 ## 📊 Project Structure
 

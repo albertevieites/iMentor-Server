@@ -1,8 +1,8 @@
 const router = require("express").Router()
 
-const uploader = require('./../config/cloudinary.config')
+const { uploadCloud } = require('./../config/cloudinary.config')
 
-router.post('/image', uploader.single('imageData'), (req, res) => {
+router.post('/image', uploadCloud.single('imageData'), (req, res) => {
 
     if (!req.file) {
         res.status(500).json({ errorMessage: "Couldn't load the file" })

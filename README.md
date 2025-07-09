@@ -138,7 +138,7 @@ The server will start on `http://localhost:5005`
 | **JWT**        | ^9.0.2       | Authentication                |
 | **bcryptjs**   | ^2.4.3       | Password hashing              |
 | **Cloudinary** | ^2.7.0       | Image storage & processing    |
-| **Multer**     | ^1.4.5-lts.1 | File upload handling          |
+| **Multer**     | ^2.0.1       | File upload handling          |
 | **CORS**       | ^2.8.5       | Cross-origin resource sharing |
 | **Morgan**     | ^1.10.0      | HTTP request logging          |
 | **ESLint**     | ^8.57.1      | Code linting                  |

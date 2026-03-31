@@ -35,6 +35,7 @@
     "flatted": "^3.4.2",
     "minimatch": "^10.2.4",
     "picomatch": "^4.0.4",
-    "lodash": "^4.17.23"
+    "lodash": "^4.17.23",
+    "path-to-regexp": "^8.4.1"
   }
 }
